@@ -20,11 +20,10 @@ main:
 outer_loop:
   beq $s0, $zero, exit
 inner_loop:
-  beq $s1, $zero, exit_inner
+  beq $s1, $zero, inner_exit
   add $s3, $s0, $s1
   rem $s3, $s3, 2
   beq $s3, $zero, print_black
-
   li $v0, 4
   la $a0, white
   syscall
@@ -36,11 +35,10 @@ print_black:
 continue:
   addi $s1, $s1, -1
   j inner_loop
-exit_inner:
+inner_exit:
   li $v0, 4
   la $a0, nl
   syscall
-
   addi $s0, $s0, -1
   move $s1, $s2
   j outer_loop
