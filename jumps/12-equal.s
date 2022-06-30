@@ -37,7 +37,7 @@ main:
 desiguales:
   li $v0, 4 # cargo mensaje
   la $a0, false # muestro mensaje
-  syscallsumo t0 + t1 y lo guardo en s1
+  syscall #sumo t0 + t1 y lo guardo en s1
 
   j end # salta a end
 iguales1:
